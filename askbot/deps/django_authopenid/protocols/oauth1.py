@@ -1,11 +1,12 @@
 from askbot.utils.html import site_url
 from askbot.deps.django_authopenid.exceptions import OAuthError
+from askbot.deps.django_authopenid.protocols.base import BaseProtocol
 import cgi
 from django.core.exceptions import ImproperlyConfigured
 import oauth2 as oauth # OAuth1 protocol
 import urllib
 
-class OAuth1Provider(object):
+class OAuth1Provider(BaseProtocol):
     """a simple class wrapping oauth2 library
     Which is actually implementing the Oauth1 protocol (version 1)
     """
